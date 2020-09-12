@@ -10,9 +10,22 @@
             @csrf
 
             <div>
-                <x-jet-label value="Name" />
-                <x-jet-input class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-jet-label value="First Name" />
+                <x-jet-input class="block mt-1 w-full" type="text" name="fname" :value="old('fname')" required autofocus autocomplete="fname" />
             </div>
+            <div>
+                <x-jet-label value="Last Name" />
+                <x-jet-input class="block mt-1 w-full" type="text" name="lname" :value="old('lname')" required autofocus autocomplete="lname" />
+            </div>
+            <div>
+                <x-jet-label value="Username" />
+                <x-jet-input class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+            </div>
+            <div>
+                <x-jet-label value="Phone(Mobile)" />
+                <x-jet-input class="block mt-1 w-full" type="text" name="phone" :value="old('phone')" required autofocus autocomplete="phone" />
+            </div>
+
 
             <div class="mt-4">
                 <x-jet-label value="Email" />
