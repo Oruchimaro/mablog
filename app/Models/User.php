@@ -57,4 +57,21 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    /******************************* RelationShips ****************************************/
+    /**
+     * Factories now use classed by default
+     * we can do this :
+     * User::factory()
+     *      ->hasPosts(10, [ //posts relationship
+     *      'body' => 'Custom body for post' //custom attribute
+     *      ])->published() //published state changer 
+     *      ->create();
+     */
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

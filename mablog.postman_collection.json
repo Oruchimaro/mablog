@@ -1,0 +1,216 @@
+{
+	"id": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+	"name": "mablog",
+	"description": "MAblog project collection\nAll Routes Should prefix with /api",
+	"order": [],
+	"folders": [
+		{
+			"name": "posts",
+			"description": "",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"order": [
+				"000eaa07-0e0e-4c04-5468-e33098ed7c2f",
+				"e114a74a-1b62-2f60-ea02-d150fe6fa3ba",
+				"dec30757-0043-9e04-7c46-fe080340a914",
+				"ad1f4dae-5e37-f95f-fbba-59d288e84952",
+				"a3299006-cf1c-66c6-8fea-b72cd8ea076b"
+			],
+			"owner": "6347956",
+			"folders_order": [],
+			"id": "30b20981-2fe7-117a-b89b-ac7f097b3664"
+		}
+	],
+	"folders_order": [
+		"30b20981-2fe7-117a-b89b-ac7f097b3664"
+	],
+	"timestamp": 1599998191249,
+	"owner": "6347956",
+	"public": false,
+	"requests": [
+		{
+			"id": "000eaa07-0e0e-4c04-5468-e33098ed7c2f",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/posts",
+			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1600349155551,
+			"name": "All Posts",
+			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
+		},
+		{
+			"id": "a3299006-cf1c-66c6-8fea-b72cd8ea076b",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/posts/57",
+			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1600349158581,
+			"name": "Delete Post",
+			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
+		},
+		{
+			"id": "ad1f4dae-5e37-f95f-fbba-59d288e84952",
+			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/posts/57",
+			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1600349157438,
+			"name": "Update Post",
+			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": [],
+			"rawModeData": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : false\n}"
+		},
+		{
+			"id": "dec30757-0043-9e04-7c46-fe080340a914",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/posts/1",
+			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1600346620941,
+			"name": "Show Post",
+			"description": "href : /api/posts/{post id}\nresponse : should return the given post\n",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
+		},
+		{
+			"id": "e114a74a-1b62-2f60-ea02-d150fe6fa3ba",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/posts",
+			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "title",
+					"value": "Create Post From API",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "body",
+					"value": "This is a test to create post from api.",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "published",
+					"value": "0",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1600342386109,
+			"name": "Create Post",
+			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
+		}
+	]
+}

@@ -17,9 +17,12 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->unsignedBigInteger('owner_id');
             $table->text('body');
             $table->boolean('published')->default(false);
             $table->timestamps();
+
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

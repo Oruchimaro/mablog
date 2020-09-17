@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -32,6 +33,23 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+    }
+
+    /**
+     * Handle Custom Exceptions Here
+     */
+    public function render($request, Throwable $e)
+    {
+        //Model Not Found Exception
+        if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
+            if (request()->wantsJson()) {
+                return response()->json([
+                    'status' => 'Error',
+                    'message' => 'Record Not Found !!!'
+                ], 404);
+            }
+        }
+
+        return parent::render($request, $e);
     }
 }
