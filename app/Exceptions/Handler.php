@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -44,9 +45,8 @@ class Handler extends ExceptionHandler
         if ($e instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
             if (request()->wantsJson()) {
                 return response()->json([
-                    'status' => 'Error',
-                    'message' => 'Record Not Found !!!'
-                ], 404);
+                    'errors' => 'Record Not Found !!!'
+                ], Response::HTTP_NOT_FOUND);
             }
         }
 

@@ -12,9 +12,8 @@
                 <jet-label for="title" value="Title" />
                 <jet-input id="title" type="text" class="mt-1 block w-full"
                     v-model="form.title" ref="title" autocomplete="title" />
-                <jet-input-error :message="form.error('title')" class="mt-2" />
+                <jet-input-error  :message="form.error('title')" class="mt-2" />
             </div>
-
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="body" value="Body" />
                 <textarea class="mt-1 block w-full bg-gray-100"
@@ -31,7 +30,6 @@
                 <jet-label for="published" value="Publish Now" />
                 <input :value="toggleCh" type="checkbox" id="published"
                 class="mt-1" v-model="form.published" autocomplete="published" />
-                <jet-input-error :message="form.error('published')" class="mt-2" />
             </div>
         </template>
 
@@ -66,16 +64,16 @@
             JetLabel,
             AppLayout,
         },
-
+        props:[ 'title', 'body'],
         data() {
             return {
                 form: this.$inertia.form({
-                    title:'',
-                    body: '',
-                    published: false
+                    title:this.title,
+                    body:this.body ,
+                    published: this.published
                 }, {
-                    bag: 'storePost',
-                }),
+                    bag: 'postBag',
+                })
             }
         },
 

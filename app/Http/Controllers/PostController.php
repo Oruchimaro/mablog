@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Post;
-use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum'])->except(['index', 'show']);
+    }
 
     public function index()
     {
-        $posts = Post::latest()->get();
+        $posts = Post::wherePublished(true)->with('owner')->latest()->get();
 
         if (request()->wantsJson()) {
             return response()->json($posts);
@@ -41,17 +43,18 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
         $post = Post::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
             'body' => $request->body,
-            'published' => $request->published
+            'owner_id' => auth()->id(),
+            'published' => (isset($request->published)) ? $request->published : 0
         ]);
 
         if (request()->wantsJson()) {
-            return response()->json($post);
+            return response()->json(['status' => '200', 'post' => $post->load('owner')]);
         }
 
         return redirect()->route('posts.show', compact('post'));
@@ -66,11 +69,11 @@ class PostController extends Controller
     public function show(Post $post)
     {
         if (request()->wantsJson()) {
-            return response()->json($post);
+            return response()->json($post->load('owner'));
         }
 
         return Inertia::render('Posts/Show', [
-            'post' => $post
+            'post' => $post->load('owner')
         ]);
     }
 
@@ -98,7 +101,7 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(CreatePostRequest $request, Post $post)
     {
         $post->update([
             'title' => $request->title,

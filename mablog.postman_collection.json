@@ -1,9 +1,21 @@
 {
 	"id": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 	"name": "mablog",
-	"description": "MAblog project collection\nAll Routes Should prefix with /api",
+	"description": "MAblog project collection\nAll Routes Should prefix with /api\ntoken generate at panel : K3m4OC6No8rMMEo96R7HKLisE8BwPW2XZcCpHSsd",
 	"order": [],
 	"folders": [
+		{
+			"name": "Auth",
+			"description": "",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"order": [
+				"4ae345b9-6ce9-b576-e066-7237a2e26ef9",
+				"c1b748d3-9401-0afe-4c92-9a166a124f13"
+			],
+			"owner": "6347956",
+			"folders_order": [],
+			"id": "2c23a370-bfcc-95b5-b01c-7ed6fb962cd3"
+		},
 		{
 			"name": "posts",
 			"description": "",
@@ -21,7 +33,8 @@
 		}
 	],
 	"folders_order": [
-		"30b20981-2fe7-117a-b89b-ac7f097b3664"
+		"30b20981-2fe7-117a-b89b-ac7f097b3664",
+		"2c23a370-bfcc-95b5-b01c-7ed6fb962cd3"
 	],
 	"timestamp": 1599998191249,
 	"owner": "6347956",
@@ -51,15 +64,81 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1600349155551,
+			"time": 1602101662319,
 			"name": "All Posts",
-			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"description": "href : /api/posts/\nMethod : Get\nThis request reurns all post with their authors that are published (published == true).\n\nresponse : returns all post with their author\n",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
+		},
+		{
+			"id": "4ae345b9-6ce9-b576-e066-7237a2e26ef9",
+			"headers": "Accept: application/json\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/sanctum/token",
+			"folder": "2c23a370-bfcc-95b5-b01c-7ed6fb962cd3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "phone",
+					"value": "09356451477",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "amir",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "email",
+					"value": "am@am.am",
+					"description": "",
+					"type": "text",
+					"enabled": false
+				},
+				{
+					"key": "password",
+					"value": "12345678",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "device_name",
+					"value": "laptop_postman",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1602166365769,
+			"name": "Login and Get Token",
+			"description": "href : /api/sanctum/token\nMethod : POST\n\nThis returns a api token, use the token as Authorization header like this :\n\nAuthorization : Bearer <token>\n\n\nRequest Body : should contain username or email or phone , password, device_name\n\nresponse : returns a token and user_id\n",
 			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 			"responses": []
 		},
 		{
 			"id": "a3299006-cf1c-66c6-8fea-b72cd8ea076b",
-			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9\n",
 			"headerData": [
 				{
 					"key": "Accept",
@@ -72,9 +151,15 @@
 					"value": "application/json",
 					"description": "",
 					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9",
+					"description": "",
+					"enabled": true
 				}
 			],
-			"url": "http://127.0.0.1:8000/api/posts/57",
+			"url": "http://127.0.0.1:8000/api/posts/19",
 			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -87,15 +172,15 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1600349158581,
+			"time": 1602101616041,
 			"name": "Delete Post",
-			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"description": "href : /api/posts/{post id}\nmethod : DELETE\nThis request deletes the id given to it.\n\nRequest Header : shoud have authorization Bearer <token>\nresponse : returns a status and message\n",
 			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 			"responses": []
 		},
 		{
 			"id": "ad1f4dae-5e37-f95f-fbba-59d288e84952",
-			"headers": "Accept: application/json\nContent-Type: application/json\n",
+			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9\n",
 			"headerData": [
 				{
 					"key": "Accept",
@@ -108,9 +193,15 @@
 					"value": "application/json",
 					"description": "",
 					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9",
+					"description": "",
+					"enabled": true
 				}
 			],
-			"url": "http://127.0.0.1:8000/api/posts/57",
+			"url": "http://127.0.0.1:8000/api/posts/51",
 			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -123,12 +214,48 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1600349157438,
+			"time": 1602101639016,
 			"name": "Update Post",
-			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"description": "href : /api/posts/{post id}\nmethod : PUT\nThis request updates the post with id given to it.\n\nRequest Body : should contain title, body, published status\nRequest Header : shoud have authorization Bearer <token>\nresponse : returns a status and edited post\n",
 			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 			"responses": [],
-			"rawModeData": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : false\n}"
+			"rawModeData": "{\n\t\"title\" : \"Again Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}"
+		},
+		{
+			"id": "c1b748d3-9401-0afe-4c92-9a166a124f13",
+			"headers": "Accept: application/json\nAuthorization: Bearer  6|CMYJKGGddvikZ5PxXICsQKiIUTVd60hjMoV4oJhJ\n",
+			"headerData": [
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer  6|CMYJKGGddvikZ5PxXICsQKiIUTVd60hjMoV4oJhJ",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://127.0.0.1:8000/api/sanctum/destroy/token",
+			"folder": "2c23a370-bfcc-95b5-b01c-7ed6fb962cd3",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "DELETE",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1602166260863,
+			"name": "Delete Toeken/Logout",
+			"description": "href :/api/sanctum/destroy/token\nMethod : DELETE\n\nThis Deletes the token given in header (the current valid access token).Resulting in user not being able to use it meaning its deleted.\n\nresponse : returns a message and a status \n",
+			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+			"responses": []
 		},
 		{
 			"id": "dec30757-0043-9e04-7c46-fe080340a914",
@@ -141,7 +268,7 @@
 					"enabled": true
 				}
 			],
-			"url": "http://127.0.0.1:8000/api/posts/1",
+			"url": "http://127.0.0.1:8000/api/posts/19",
 			"folder": "30b20981-2fe7-117a-b89b-ac7f097b3664",
 			"queryParams": [],
 			"preRequestScript": null,
@@ -154,21 +281,33 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1600346620941,
+			"time": 1601239169814,
 			"name": "Show Post",
-			"description": "href : /api/posts/{post id}\nresponse : should return the given post\n",
+			"description": "href : /api/posts/{post id}\nMethod : GET\nThis request reurns the given post.\n\nresponse : returns the post with its author\n",
 			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 			"responses": []
 		},
 		{
 			"id": "e114a74a-1b62-2f60-ea02-d150fe6fa3ba",
-			"headers": "Accept: application/json\n",
+			"headers": "Accept: application/json\nAuthorization: Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9\n",
 			"headerData": [
 				{
 					"key": "Accept",
 					"value": "application/json",
 					"description": "",
 					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer 5|XOyZhv0ZDElN1toeg7NKjlEjay25xuKnrsz8OWD9",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": false
 				}
 			],
 			"url": "http://127.0.0.1:8000/api/posts",
@@ -181,21 +320,21 @@
 			"data": [
 				{
 					"key": "title",
-					"value": "Create Post From API",
+					"value": "Create api with authrde",
 					"description": "",
 					"type": "text",
 					"enabled": true
 				},
 				{
 					"key": "body",
-					"value": "This is a test to create post from api.",
+					"value": "Test Post api",
 					"description": "",
 					"type": "text",
 					"enabled": true
 				},
 				{
 					"key": "published",
-					"value": "0",
+					"value": "1",
 					"description": "",
 					"type": "text",
 					"enabled": true
@@ -206,9 +345,9 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1600342386109,
+			"time": 1602101586466,
 			"name": "Create Post",
-			"description": "href : /api/posts\nresponse : should contain all posts in system",
+			"description": "href : /api/posts/\nMethod : POST\nThis request cretes a post.\n\nRequest Body : should contain title, body, published status\nRequest Header : shoud have authorization Bearer <token>\nresponse : returns a status and created post with its author\n",
 			"collectionId": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
 			"responses": []
 		}

@@ -3309,8 +3309,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -3386,8 +3384,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 
@@ -3405,14 +3401,15 @@ __webpack_require__.r(__webpack_exports__);
     JetLabel: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_5__["default"],
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
+  props: ['title', 'body'],
   data: function data() {
     return {
       form: this.$inertia.form({
-        title: '',
-        body: '',
-        published: false
+        title: this.title,
+        body: this.body,
+        published: this.published
       }, {
-        bag: 'storePost'
+        bag: 'postBag'
       })
     };
   },
@@ -3505,6 +3502,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3513,7 +3520,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post'],
+  props: ["post"],
   components: {
     JetActionMessage: _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_0__["default"],
     JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -3530,9 +3537,9 @@ __webpack_require__.r(__webpack_exports__);
         body: this.post.body,
         published: this.post.published
       }, {
-        bag: 'storePost'
+        bag: "postBag"
       }),
-      url: '/posts/' + this.post.id
+      url: "/posts/" + this.post.id
     };
   },
   methods: {
@@ -3583,16 +3590,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['posts'],
+  props: ["posts"],
   components: {
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -5180,7 +5180,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cont[data-v-95e17362] {\n  width : 80%;\n  margin: 10vh auto;\n  background-color: white;\n}\n", ""]);
+exports.push([module.i, ".cont[data-v-95e17362] {\n  width: 80%;\n  margin: 10vh auto;\n  background-color: white;\n}\n", ""]);
 
 // exports
 
@@ -27934,9 +27934,9 @@ var render = function() {
                 "h2",
                 {
                   staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
+                    "text-xl font-semibold leading-tight text-gray-800"
                 },
-                [_vm._v("\n            Dashboard\n        ")]
+                [_vm._v("Dashboard")]
               )
             ]
           },
@@ -27947,10 +27947,10 @@ var render = function() {
     [
       _vm._v(" "),
       _c("div", { staticClass: "py-12" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "mx-auto max-w-7xl sm:px-6 lg:px-8" }, [
           _c(
             "div",
-            { staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg" },
+            { staticClass: "overflow-hidden bg-white shadow-xl sm:rounded-lg" },
             [_c("welcome")],
             1
           )
@@ -28143,11 +28143,6 @@ var render = function() {
                           }
                         }
                       }
-                    }),
-                    _vm._v(" "),
-                    _c("jet-input-error", {
-                      staticClass: "mt-2",
-                      attrs: { message: _vm.form.error("published") }
                     })
                   ],
                   1
@@ -28223,7 +28218,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [_vm._v("\n            Update Post\n        ")]
+                [_vm._v("Update Post")]
               )
             ]
           },
@@ -28394,7 +28389,7 @@ var render = function() {
                     staticClass: "mr-3",
                     attrs: { on: _vm.form.recentlySuccessful }
                   },
-                  [_vm._v("\n                Updated.\n            ")]
+                  [_vm._v("Updated.")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -28403,7 +28398,7 @@ var render = function() {
                     class: { "opacity-25": _vm.form.processing },
                     attrs: { disabled: _vm.form.processing }
                   },
-                  [_vm._v("\n                Update\n            ")]
+                  [_vm._v("Update")]
                 )
               ]
             },
@@ -28414,15 +28409,15 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "cont" }, [
         _c("h1", { staticClass: "text-xl text-gray-700" }, [
-          _vm._v(" " + _vm._s(_vm.post.title) + " ")
+          _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "text-md my-4" }, [
-          _vm._v(" " + _vm._s(_vm.post.body) + " ")
+        _c("p", { staticClass: "my-4 text-md" }, [
+          _vm._v(_vm._s(_vm.post.body))
         ]),
         _vm._v(" "),
         _c("h3", { staticClass: "text-xs text-red-300" }, [
-          _vm._v(" " + _vm._s(_vm.post.created_at) + " ")
+          _vm._v(_vm._s(_vm.post.created_at))
         ])
       ])
     ],
@@ -28465,7 +28460,7 @@ var render = function() {
                   staticClass:
                     "font-semibold text-xl text-gray-800 leading-tight"
                 },
-                [_vm._v("\n            Posts\n        ")]
+                [_vm._v("Posts")]
               )
             ]
           },
@@ -28478,18 +28473,18 @@ var render = function() {
       _c("div", { staticClass: "py-12" }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto sm:px-6 lg:px-8" },
+          { staticClass: "mx-auto max-w-7xl sm:px-6 lg:px-8" },
           [
             _c(
               "inertia-link",
               { class: _vm.linkClasses, attrs: { href: "/posts/create" } },
-              [_vm._v("\n            create\n        ")]
+              [_vm._v("create")]
             ),
             _vm._v(" "),
             _c(
               "div",
               {
-                staticClass: "bg-white overflow-hidden shadow-xl sm:rounded-lg"
+                staticClass: "overflow-hidden bg-white shadow-xl sm:rounded-lg"
               },
               _vm._l(_vm.posts, function(post) {
                 return _c(
@@ -28499,16 +28494,10 @@ var render = function() {
                     _c(
                       "inertia-link",
                       {
-                        staticClass: "text-blue-800 text-xl",
+                        staticClass: "text-xl text-blue-800",
                         attrs: { href: "posts/" + post.id }
                       },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(post.title) +
-                            "\n                    "
-                        )
-                      ]
+                      [_vm._v(_vm._s(post.title))]
                     )
                   ],
                   1
