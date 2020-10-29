@@ -2914,6 +2914,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2936,15 +2975,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     switchToTeam: function switchToTeam(team) {
-      this.$inertia.put('/current-team', {
-        'team_id': team.id
+      this.$inertia.put("/current-team", {
+        team_id: team.id
       }, {
         preserveState: false
       });
     },
     logout: function logout() {
-      axios.post('/logout').then(function (response) {
-        window.location = '/';
+      axios.post("/logout").then(function (response) {
+        window.location = "/";
       });
     }
   },
@@ -3633,17 +3672,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post'],
+  props: ["post"],
   data: function data() {
     return {
       form: this.$inertia.form({}, {
-        bag: 'deletePost'
+        bag: "deletePost"
       }),
-      editUrl: '/posts/' + this.post.id + '/edit',
-      deleteUrl: '/posts/' + this.post.id
+      editUrl: "/posts/" + this.post.id + "/edit",
+      deleteUrl: "/posts/" + this.post.id
     };
   },
   components: {
@@ -5199,7 +5237,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".cont[data-v-416001c2] {\n  width : 80%;\n  margin: 10vh auto;\n  background-color: white;\n}\n", ""]);
+exports.push([module.i, ".cont[data-v-416001c2] {\n  width: 80%;\n  margin: 10vh auto;\n  background-color: white;\n}\n", ""]);
 
 // exports
 
@@ -26578,16 +26616,16 @@ var render = function() {
     { staticClass: "min-h-screen bg-gray-100" },
     [
       _c("nav", { staticClass: "bg-white border-b border-gray-100" }, [
-        _c("div", { staticClass: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" }, [
+        _c("div", { staticClass: "px-4 mx-auto max-w-7xl sm:px-6 lg:px-8" }, [
           _c("div", { staticClass: "flex justify-between h-16" }, [
             _c("div", { staticClass: "flex" }, [
-              _c("div", { staticClass: "flex-shrink-0 flex items-center" }, [
+              _c("div", { staticClass: "flex items-center flex-shrink-0" }, [
                 _c(
                   "a",
                   { attrs: { href: "/dashboard" } },
                   [
                     _c("jet-application-mark", {
-                      staticClass: "block h-9 w-auto"
+                      staticClass: "block w-auto h-9"
                     })
                   ],
                   1
@@ -26598,20 +26636,25 @@ var render = function() {
                 "div",
                 { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
                 [
-                  _c(
-                    "jet-nav-link",
-                    {
-                      attrs: {
-                        href: "/dashboard",
-                        active: _vm.$page.currentRouteName == "dashboard"
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Dashboard\n                        "
+                  _vm.$page.user
+                    ? _c(
+                        "jet-nav-link",
+                        {
+                          attrs: {
+                            href: "/dashboard",
+                            active: _vm.$page.currentRouteName == "dashboard"
+                          }
+                        },
+                        [_vm._v("Dashboard")]
                       )
-                    ]
-                  )
+                    : _c(
+                        "a",
+                        {
+                          staticClass: "pt-5 text-sm text-center text-gray-500",
+                          attrs: { href: "/login" }
+                        },
+                        [_vm._v("Login")]
+                      )
                 ],
                 1
               ),
@@ -26628,136 +26671,78 @@ var render = function() {
                         active: _vm.$page.currentRouteName == "posts"
                       }
                     },
-                    [
-                      _vm._v(
-                        "\n                            Post\n                        "
-                      )
-                    ]
+                    [_vm._v("Post")]
                   )
                 ],
                 1
               )
             ]),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "hidden sm:flex sm:items-center sm:ml-6" },
-              [
-                _c(
+            _vm.$page.user
+              ? _c(
                   "div",
-                  { staticClass: "ml-3 relative" },
+                  { staticClass: "hidden sm:flex sm:items-center sm:ml-6" },
                   [
-                    _c("jet-dropdown", {
-                      attrs: { align: "right", width: "48" },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "trigger",
-                          fn: function() {
-                            return [
-                              _c(
-                                "button",
-                                {
-                                  staticClass:
-                                    "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                    _c(
+                      "div",
+                      { staticClass: "relative ml-3" },
+                      [
+                        _c("jet-dropdown", {
+                          attrs: { align: "right", width: "48" },
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "trigger",
+                                fn: function() {
+                                  return [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out"
+                                      },
+                                      [
+                                        _c("img", {
+                                          staticClass:
+                                            "object-cover w-8 h-8 rounded-full",
+                                          attrs: {
+                                            src:
+                                              _vm.$page.user.profile_photo_url,
+                                            alt: _vm.$page.user.name
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
                                 },
-                                [
-                                  _c("img", {
-                                    staticClass:
-                                      "h-8 w-8 rounded-full object-cover",
-                                    attrs: {
-                                      src: _vm.$page.user.profile_photo_url,
-                                      alt: _vm.$page.user.name
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          },
-                          proxy: true
-                        },
-                        {
-                          key: "content",
-                          fn: function() {
-                            return [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "block px-4 py-2 text-xs text-gray-400"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                                    Manage Account\n                                "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "jet-dropdown-link",
-                                { attrs: { href: "/user/profile" } },
-                                [
-                                  _vm._v(
-                                    "\n                                    Profile\n                                "
-                                  )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _vm.$page.jetstream.hasApiFeatures
-                                ? _c(
-                                    "jet-dropdown-link",
-                                    { attrs: { href: "/user/api-tokens" } },
-                                    [
-                                      _vm._v(
-                                        "\n                                    API Tokens\n                                "
-                                      )
-                                    ]
-                                  )
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c("div", {
-                                staticClass: "border-t border-gray-100"
-                              }),
-                              _vm._v(" "),
-                              _vm.$page.jetstream.hasTeamFeatures
-                                ? [
+                                proxy: true
+                              },
+                              {
+                                key: "content",
+                                fn: function() {
+                                  return [
                                     _c(
                                       "div",
                                       {
                                         staticClass:
                                           "block px-4 py-2 text-xs text-gray-400"
                                       },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Manage Team\n                                    "
-                                        )
-                                      ]
+                                      [_vm._v("Manage Account")]
                                     ),
                                     _vm._v(" "),
                                     _c(
                                       "jet-dropdown-link",
-                                      {
-                                        attrs: {
-                                          href:
-                                            "/teams/" +
-                                            _vm.$page.user.current_team.id
-                                        }
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Team Settings\n                                    "
-                                        )
-                                      ]
+                                      { attrs: { href: "/user/profile" } },
+                                      [_vm._v("Profile")]
                                     ),
                                     _vm._v(" "),
-                                    _vm.$page.jetstream.canCreateTeams
+                                    _vm.$page.jetstream.hasApiFeatures
                                       ? _c(
                                           "jet-dropdown-link",
-                                          { attrs: { href: "/teams/create" } },
-                                          [
-                                            _vm._v(
-                                              "\n                                        Create New Team\n                                    "
-                                            )
-                                          ]
+                                          {
+                                            attrs: { href: "/user/api-tokens" }
+                                          },
+                                          [_vm._v("API Tokens")]
                                         )
                                       : _vm._e(),
                                     _vm._v(" "),
@@ -26765,138 +26750,186 @@ var render = function() {
                                       staticClass: "border-t border-gray-100"
                                     }),
                                     _vm._v(" "),
-                                    _c(
-                                      "div",
-                                      {
-                                        staticClass:
-                                          "block px-4 py-2 text-xs text-gray-400"
-                                      },
-                                      [
-                                        _vm._v(
-                                          "\n                                        Switch Teams\n                                    "
-                                        )
-                                      ]
-                                    ),
-                                    _vm._v(" "),
-                                    _vm._l(_vm.$page.user.all_teams, function(
-                                      team
-                                    ) {
-                                      return [
-                                        _c(
-                                          "form",
-                                          {
-                                            on: {
-                                              submit: function($event) {
-                                                $event.preventDefault()
-                                                return _vm.switchToTeam(team)
+                                    _vm.$page.jetstream.hasTeamFeatures
+                                      ? [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "block px-4 py-2 text-xs text-gray-400"
+                                            },
+                                            [_vm._v("Manage Team")]
+                                          ),
+                                          _vm._v(" "),
+                                          _c(
+                                            "jet-dropdown-link",
+                                            {
+                                              attrs: {
+                                                href:
+                                                  "/teams/" +
+                                                  _vm.$page.user.current_team.id
                                               }
-                                            }
-                                          },
-                                          [
-                                            _c(
-                                              "jet-dropdown-link",
-                                              { attrs: { as: "button" } },
-                                              [
+                                            },
+                                            [_vm._v("Team Settings")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm.$page.jetstream.canCreateTeams
+                                            ? _c(
+                                                "jet-dropdown-link",
+                                                {
+                                                  attrs: {
+                                                    href: "/teams/create"
+                                                  }
+                                                },
+                                                [_vm._v("Create New Team")]
+                                              )
+                                            : _vm._e(),
+                                          _vm._v(" "),
+                                          _c("div", {
+                                            staticClass:
+                                              "border-t border-gray-100"
+                                          }),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "block px-4 py-2 text-xs text-gray-400"
+                                            },
+                                            [_vm._v("Switch Teams")]
+                                          ),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.$page.user.all_teams,
+                                            function(team) {
+                                              return [
                                                 _c(
-                                                  "div",
+                                                  "form",
                                                   {
-                                                    staticClass:
-                                                      "flex items-center"
+                                                    on: {
+                                                      submit: function($event) {
+                                                        $event.preventDefault()
+                                                        return _vm.switchToTeam(
+                                                          team
+                                                        )
+                                                      }
+                                                    }
                                                   },
                                                   [
-                                                    team.id ==
-                                                    _vm.$page.user
-                                                      .current_team_id
-                                                      ? _c(
-                                                          "svg",
+                                                    _c(
+                                                      "jet-dropdown-link",
+                                                      {
+                                                        attrs: { as: "button" }
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "div",
                                                           {
                                                             staticClass:
-                                                              "mr-2 h-5 w-5 text-green-400",
-                                                            attrs: {
-                                                              fill: "none",
-                                                              "stroke-linecap":
-                                                                "round",
-                                                              "stroke-linejoin":
-                                                                "round",
-                                                              "stroke-width":
-                                                                "2",
-                                                              stroke:
-                                                                "currentColor",
-                                                              viewBox:
-                                                                "0 0 24 24"
-                                                            }
+                                                              "flex items-center"
                                                           },
                                                           [
-                                                            _c("path", {
-                                                              attrs: {
-                                                                d:
-                                                                  "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                              }
-                                                            })
+                                                            team.id ==
+                                                            _vm.$page.user
+                                                              .current_team_id
+                                                              ? _c(
+                                                                  "svg",
+                                                                  {
+                                                                    staticClass:
+                                                                      "w-5 h-5 mr-2 text-green-400",
+                                                                    attrs: {
+                                                                      fill:
+                                                                        "none",
+                                                                      "stroke-linecap":
+                                                                        "round",
+                                                                      "stroke-linejoin":
+                                                                        "round",
+                                                                      "stroke-width":
+                                                                        "2",
+                                                                      stroke:
+                                                                        "currentColor",
+                                                                      viewBox:
+                                                                        "0 0 24 24"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
+                                                              : _vm._e(),
+                                                            _vm._v(" "),
+                                                            _c("div", [
+                                                              _vm._v(
+                                                                _vm._s(
+                                                                  team.name
+                                                                )
+                                                              )
+                                                            ])
                                                           ]
                                                         )
-                                                      : _vm._e(),
-                                                    _vm._v(" "),
-                                                    _c("div", [
-                                                      _vm._v(_vm._s(team.name))
-                                                    ])
-                                                  ]
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
                                                 )
                                               ]
-                                            )
-                                          ],
-                                          1
-                                        )
-                                      ]
-                                    }),
+                                            }
+                                          ),
+                                          _vm._v(" "),
+                                          _c("div", {
+                                            staticClass:
+                                              "border-t border-gray-100"
+                                          })
+                                        ]
+                                      : _vm._e(),
                                     _vm._v(" "),
-                                    _c("div", {
-                                      staticClass: "border-t border-gray-100"
-                                    })
+                                    _c(
+                                      "form",
+                                      {
+                                        on: {
+                                          submit: function($event) {
+                                            $event.preventDefault()
+                                            return _vm.logout($event)
+                                          }
+                                        }
+                                      },
+                                      [
+                                        _c(
+                                          "jet-dropdown-link",
+                                          { attrs: { as: "button" } },
+                                          [_vm._v("Logout")]
+                                        )
+                                      ],
+                                      1
+                                    )
                                   ]
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c(
-                                "form",
-                                {
-                                  on: {
-                                    submit: function($event) {
-                                      $event.preventDefault()
-                                      return _vm.logout($event)
-                                    }
-                                  }
                                 },
-                                [
-                                  _c(
-                                    "jet-dropdown-link",
-                                    { attrs: { as: "button" } },
-                                    [
-                                      _vm._v(
-                                        "\n                                        Logout\n                                    "
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            ]
-                          },
-                          proxy: true
-                        }
-                      ])
-                    })
-                  ],
-                  1
+                                proxy: true
+                              }
+                            ],
+                            null,
+                            false,
+                            2648556447
+                          )
+                        })
+                      ],
+                      1
+                    )
+                  ]
                 )
-              ]
-            ),
+              : _vm._e(),
             _vm._v(" "),
-            _c("div", { staticClass: "-mr-2 flex items-center sm:hidden" }, [
+            _c("div", { staticClass: "flex items-center -mr-2 sm:hidden" }, [
               _c(
                 "button",
                 {
                   staticClass:
-                    "inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out",
+                    "inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out",
                   on: {
                     click: function($event) {
                       _vm.showingNavigationDropdown = !_vm.showingNavigationDropdown
@@ -26907,7 +26940,7 @@ var render = function() {
                   _c(
                     "svg",
                     {
-                      staticClass: "h-6 w-6",
+                      staticClass: "w-6 h-6",
                       attrs: {
                         stroke: "currentColor",
                         fill: "none",
@@ -26958,238 +26991,238 @@ var render = function() {
             }
           },
           [
-            _c(
-              "div",
-              { staticClass: "pt-2 pb-3 space-y-1" },
-              [
-                _c(
-                  "jet-responsive-nav-link",
-                  {
-                    attrs: {
-                      href: "/dashboard",
-                      active: _vm.$page.currentRouteName == "dashboard"
-                    }
-                  },
-                  [_vm._v("\n                    Dashboard\n                ")]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "pt-4 pb-1 border-t border-gray-200" }, [
-              _c("div", { staticClass: "flex items-center px-4" }, [
-                _c("div", { staticClass: "flex-shrink-0" }, [
-                  _c("img", {
-                    staticClass: "h-10 w-10 rounded-full",
-                    attrs: {
-                      src: _vm.$page.user.profile_photo_url,
-                      alt: _vm.$page.user.name
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "ml-3" }, [
-                  _c(
-                    "div",
-                    { staticClass: "font-medium text-base text-gray-800" },
-                    [_vm._v(_vm._s(_vm.$page.user.name))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "font-medium text-sm text-gray-500" },
-                    [_vm._v(_vm._s(_vm.$page.user.email))]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "mt-3 space-y-1" },
-                [
-                  _c(
-                    "jet-responsive-nav-link",
-                    {
-                      attrs: {
-                        href: "/user/profile",
-                        active: _vm.$page.currentRouteName == "profile.show"
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Profile\n                    "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _vm.$page.jetstream.hasApiFeatures
-                    ? _c(
-                        "jet-responsive-nav-link",
-                        {
-                          attrs: {
-                            href: "/user/api-tokens",
-                            active:
-                              _vm.$page.currentRouteName == "api-tokens.index"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        API Tokens\n                    "
-                          )
-                        ]
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c(
-                    "form",
-                    {
-                      attrs: { method: "POST" },
-                      on: {
-                        submit: function($event) {
-                          $event.preventDefault()
-                          return _vm.logout($event)
+            _vm.$page.user
+              ? _c(
+                  "div",
+                  { staticClass: "pt-2 pb-3 space-y-1" },
+                  [
+                    _c(
+                      "jet-responsive-nav-link",
+                      {
+                        attrs: {
+                          href: "/dashboard",
+                          active: _vm.$page.currentRouteName == "dashboard"
                         }
-                      }
-                    },
-                    [
-                      _c(
-                        "jet-responsive-nav-link",
-                        { attrs: { as: "button" } },
-                        [
-                          _vm._v(
-                            "\n                            Logout\n                        "
-                          )
-                        ]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _vm.$page.jetstream.hasTeamFeatures
-                    ? [
-                        _c("div", { staticClass: "border-t border-gray-200" }),
-                        _vm._v(" "),
+                      },
+                      [_vm._v("Dashboard")]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.$page.user
+              ? _c(
+                  "div",
+                  { staticClass: "pt-4 pb-1 border-t border-gray-200" },
+                  [
+                    _c("div", { staticClass: "flex items-center px-4" }, [
+                      _c("div", { staticClass: "flex-shrink-0" }, [
+                        _c("img", {
+                          staticClass: "w-10 h-10 rounded-full",
+                          attrs: {
+                            src: _vm.$page.user.profile_photo_url,
+                            alt: _vm.$page.user.name
+                          }
+                        })
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "ml-3" }, [
                         _c(
                           "div",
                           {
-                            staticClass: "block px-4 py-2 text-xs text-gray-400"
+                            staticClass: "text-base font-medium text-gray-800"
                           },
-                          [
-                            _vm._v(
-                              "\n                            Manage Team\n                        "
-                            )
-                          ]
+                          [_vm._v(_vm._s(_vm.$page.user.name))]
                         ),
                         _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "text-sm font-medium text-gray-500" },
+                          [_vm._v(_vm._s(_vm.$page.user.email))]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "mt-3 space-y-1" },
+                      [
                         _c(
                           "jet-responsive-nav-link",
                           {
                             attrs: {
-                              href: "/teams/" + _vm.$page.user.current_team.id,
-                              active: _vm.$page.currentRouteName == "teams.show"
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Team Settings\n                        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "jet-responsive-nav-link",
-                          {
-                            attrs: {
-                              href: "/teams/create",
+                              href: "/user/profile",
                               active:
-                                _vm.$page.currentRouteName == "teams.create"
+                                _vm.$page.currentRouteName == "profile.show"
                             }
                           },
-                          [
-                            _vm._v(
-                              "\n                            Create New Team\n                        "
-                            )
-                          ]
+                          [_vm._v("Profile")]
                         ),
                         _vm._v(" "),
-                        _c("div", { staticClass: "border-t border-gray-200" }),
-                        _vm._v(" "),
-                        _c(
-                          "div",
-                          {
-                            staticClass: "block px-4 py-2 text-xs text-gray-400"
-                          },
-                          [
-                            _vm._v(
-                              "\n                            Switch Teams\n                        "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(_vm.$page.user.all_teams, function(team) {
-                          return [
-                            _c(
-                              "form",
+                        _vm.$page.jetstream.hasApiFeatures
+                          ? _c(
+                              "jet-responsive-nav-link",
                               {
-                                on: {
-                                  submit: function($event) {
-                                    $event.preventDefault()
-                                    return _vm.switchToTeam(team)
-                                  }
+                                attrs: {
+                                  href: "/user/api-tokens",
+                                  active:
+                                    _vm.$page.currentRouteName ==
+                                    "api-tokens.index"
                                 }
                               },
-                              [
-                                _c(
-                                  "jet-responsive-nav-link",
-                                  { attrs: { as: "button" } },
-                                  [
-                                    _c(
-                                      "div",
-                                      { staticClass: "flex items-center" },
-                                      [
-                                        team.id ==
-                                        _vm.$page.user.current_team_id
-                                          ? _c(
-                                              "svg",
-                                              {
-                                                staticClass:
-                                                  "mr-2 h-5 w-5 text-green-400",
-                                                attrs: {
-                                                  fill: "none",
-                                                  "stroke-linecap": "round",
-                                                  "stroke-linejoin": "round",
-                                                  "stroke-width": "2",
-                                                  stroke: "currentColor",
-                                                  viewBox: "0 0 24 24"
-                                                }
-                                              },
-                                              [
-                                                _c("path", {
-                                                  attrs: {
-                                                    d:
-                                                      "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                                  }
-                                                })
-                                              ]
-                                            )
-                                          : _vm._e(),
-                                        _vm._v(" "),
-                                        _c("div", [_vm._v(_vm._s(team.name))])
-                                      ]
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
+                              [_vm._v("API Tokens")]
                             )
-                          ]
-                        })
-                      ]
-                    : _vm._e()
-                ],
-                2
-              )
-            ])
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _c(
+                          "form",
+                          {
+                            attrs: { method: "POST" },
+                            on: {
+                              submit: function($event) {
+                                $event.preventDefault()
+                                return _vm.logout($event)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "jet-responsive-nav-link",
+                              { attrs: { as: "button" } },
+                              [_vm._v("Logout")]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm.$page.jetstream.hasTeamFeatures
+                          ? [
+                              _c("div", {
+                                staticClass: "border-t border-gray-200"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-xs text-gray-400"
+                                },
+                                [_vm._v("Manage Team")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "jet-responsive-nav-link",
+                                {
+                                  attrs: {
+                                    href:
+                                      "/teams/" +
+                                      _vm.$page.user.current_team.id,
+                                    active:
+                                      _vm.$page.currentRouteName == "teams.show"
+                                  }
+                                },
+                                [_vm._v("Team Settings")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "jet-responsive-nav-link",
+                                {
+                                  attrs: {
+                                    href: "/teams/create",
+                                    active:
+                                      _vm.$page.currentRouteName ==
+                                      "teams.create"
+                                  }
+                                },
+                                [_vm._v("Create New Team")]
+                              ),
+                              _vm._v(" "),
+                              _c("div", {
+                                staticClass: "border-t border-gray-200"
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "block px-4 py-2 text-xs text-gray-400"
+                                },
+                                [_vm._v("Switch Teams")]
+                              ),
+                              _vm._v(" "),
+                              _vm._l(_vm.$page.user.all_teams, function(team) {
+                                return [
+                                  _c(
+                                    "form",
+                                    {
+                                      on: {
+                                        submit: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.switchToTeam(team)
+                                        }
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "jet-responsive-nav-link",
+                                        { attrs: { as: "button" } },
+                                        [
+                                          _c(
+                                            "div",
+                                            {
+                                              staticClass: "flex items-center"
+                                            },
+                                            [
+                                              team.id ==
+                                              _vm.$page.user.current_team_id
+                                                ? _c(
+                                                    "svg",
+                                                    {
+                                                      staticClass:
+                                                        "w-5 h-5 mr-2 text-green-400",
+                                                      attrs: {
+                                                        fill: "none",
+                                                        "stroke-linecap":
+                                                          "round",
+                                                        "stroke-linejoin":
+                                                          "round",
+                                                        "stroke-width": "2",
+                                                        stroke: "currentColor",
+                                                        viewBox: "0 0 24 24"
+                                                      }
+                                                    },
+                                                    [
+                                                      _c("path", {
+                                                        attrs: {
+                                                          d:
+                                                            "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                : _vm._e(),
+                                              _vm._v(" "),
+                                              _c("div", [
+                                                _vm._v(_vm._s(team.name))
+                                              ])
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              })
+                            ]
+                          : _vm._e()
+                      ],
+                      2
+                    )
+                  ]
+                )
+              : _vm._e()
           ]
         )
       ]),
@@ -27197,7 +27230,7 @@ var render = function() {
       _c("header", { staticClass: "bg-white shadow" }, [
         _c(
           "div",
-          { staticClass: "max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8" },
+          { staticClass: "px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8" },
           [_vm._t("header")],
           2
         )
@@ -28458,7 +28491,7 @@ var render = function() {
                 "h2",
                 {
                   staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
+                    "text-xl font-semibold leading-tight text-gray-800"
                 },
                 [_vm._v("Posts")]
               )
@@ -28475,11 +28508,13 @@ var render = function() {
           "div",
           { staticClass: "mx-auto max-w-7xl sm:px-6 lg:px-8" },
           [
-            _c(
-              "inertia-link",
-              { class: _vm.linkClasses, attrs: { href: "/posts/create" } },
-              [_vm._v("create")]
-            ),
+            _vm.$page.user
+              ? _c(
+                  "inertia-link",
+                  { class: _vm.linkClasses, attrs: { href: "/posts/create" } },
+                  [_vm._v("create")]
+                )
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
@@ -28546,7 +28581,7 @@ var render = function() {
                 "h2",
                 {
                   staticClass:
-                    "font-semibold text-xl text-gray-800 leading-tight"
+                    "text-xl font-semibold leading-tight text-gray-800"
                 },
                 [_vm._v("Create Post")]
               )
@@ -28558,11 +28593,13 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _c(
-        "inertia-link",
-        { class: _vm.linkClasses, attrs: { href: this.editUrl } },
-        [_vm._v(" Edit ")]
-      ),
+      _vm.$page.user
+        ? _c(
+            "inertia-link",
+            { class: _vm.linkClasses, attrs: { href: this.editUrl } },
+            [_vm._v("Edit")]
+          )
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "form",
@@ -28575,29 +28612,31 @@ var render = function() {
           }
         },
         [
-          _c(
-            "button",
-            {
-              staticClass: "bg-red-600",
-              class: _vm.linkClasses,
-              attrs: { type: "submit" }
-            },
-            [_vm._v("Delete")]
-          )
+          _vm.$page.user
+            ? _c(
+                "button",
+                {
+                  staticClass: "bg-red-600",
+                  class: _vm.linkClasses,
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Delete")]
+              )
+            : _vm._e()
         ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "cont" }, [
         _c("h1", { staticClass: "text-xl text-gray-700" }, [
-          _vm._v(" " + _vm._s(_vm.post.title) + " ")
+          _vm._v(_vm._s(_vm.post.title))
         ]),
         _vm._v(" "),
-        _c("p", { staticClass: "text-md my-4" }, [
-          _vm._v(" " + _vm._s(_vm.post.body) + " ")
+        _c("p", { staticClass: "my-4 text-md" }, [
+          _vm._v(_vm._s(_vm.post.body))
         ]),
         _vm._v(" "),
         _c("h3", { staticClass: "text-xs text-red-300" }, [
-          _vm._v(" " + _vm._s(_vm.post.created_at) + " ")
+          _vm._v(_vm._s(_vm.post.created_at))
         ])
       ])
     ],

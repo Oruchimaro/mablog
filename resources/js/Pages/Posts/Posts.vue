@@ -1,12 +1,12 @@
 <template>
   <app-layout>
     <template #header>
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">Posts</h2>
+      <h2 class="text-xl font-semibold leading-tight text-gray-800">Posts</h2>
     </template>
 
     <div class="py-12">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <inertia-link href="/posts/create" :class="linkClasses">create</inertia-link>
+        <inertia-link href="/posts/create" :class="linkClasses" v-if="$page.user">create</inertia-link>
 
         <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
           <div v-for="post in posts" :key="post.id">

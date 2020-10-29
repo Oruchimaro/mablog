@@ -1,4 +1,4 @@
-# About This Project :
+# About This Project
 
     This is a project for a blog using laravel v8 with jetstream and inertia.js with Vue2
     stack.This project is a Blog and CMS with features listed below.
@@ -11,7 +11,7 @@
     [] Comments
     [] Rating
 
-## How To Use :
+## How To Use
 
     - Clone This repo into a directory of your choosing
     - Copy and rename .env.example file to .env
