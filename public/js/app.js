@@ -3672,6 +3672,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["post"],
@@ -28583,7 +28595,7 @@ var render = function() {
                   staticClass:
                     "text-xl font-semibold leading-tight text-gray-800"
                 },
-                [_vm._v("Create Post")]
+                [_vm._v("\n      Create Post\n    ")]
               )
             ]
           },
@@ -28593,38 +28605,46 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _vm.$page.user
+      _vm.$page.user.id === _vm.post.owner_id
         ? _c(
-            "inertia-link",
-            { class: _vm.linkClasses, attrs: { href: this.editUrl } },
-            [_vm._v("Edit")]
+            "div",
+            [
+              _vm.$page.user
+                ? _c(
+                    "inertia-link",
+                    { class: _vm.linkClasses, attrs: { href: this.editUrl } },
+                    [_vm._v("Edit")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "form",
+                {
+                  on: {
+                    submit: function($event) {
+                      $event.preventDefault()
+                      return _vm.deletePost($event)
+                    }
+                  }
+                },
+                [
+                  _vm.$page.user
+                    ? _c(
+                        "button",
+                        {
+                          staticClass: "bg-red-600",
+                          class: _vm.linkClasses,
+                          attrs: { type: "submit" }
+                        },
+                        [_vm._v("\n        Delete\n      ")]
+                      )
+                    : _vm._e()
+                ]
+              )
+            ],
+            1
           )
         : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "form",
-        {
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.deletePost($event)
-            }
-          }
-        },
-        [
-          _vm.$page.user
-            ? _c(
-                "button",
-                {
-                  staticClass: "bg-red-600",
-                  class: _vm.linkClasses,
-                  attrs: { type: "submit" }
-                },
-                [_vm._v("Delete")]
-              )
-            : _vm._e()
-        ]
-      ),
       _vm._v(" "),
       _c("div", { staticClass: "cont" }, [
         _c("h1", { staticClass: "text-xl text-gray-700" }, [
@@ -28639,8 +28659,7 @@ var render = function() {
           _vm._v(_vm._s(_vm.post.created_at))
         ])
       ])
-    ],
-    1
+    ]
   )
 }
 var staticRenderFns = []
@@ -46311,8 +46330,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/itachi/Documents/Code/Web/Back/Laravel/mablog/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/itachi/Documents/Code/Web/Back/Laravel/mablog/resources/css/app.css */"./resources/css/app.css");
+__webpack_require__(/*! /home/tyrant/Documents/Code/Laravel/mablog/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/tyrant/Documents/Code/Laravel/mablog/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })

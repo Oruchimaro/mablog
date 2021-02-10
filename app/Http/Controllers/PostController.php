@@ -45,6 +45,7 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
+        // authorization in request class
         $post = Post::create([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
@@ -85,6 +86,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $this->authorize('update', $post);
+
         if (request()->wantsJson()) {
             return response()->json($post);
         }
@@ -103,6 +106,8 @@ class PostController extends Controller
      */
     public function update(CreatePostRequest $request, Post $post)
     {
+        $this->authorize('update', $post);
+
         $post->update([
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
@@ -125,6 +130,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $this->authorize('delete', $post);
+
         $post->delete();
 
         if (request()->wantsJson()) {

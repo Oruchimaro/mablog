@@ -5,6 +5,8 @@ namespace App\Exceptions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Illuminate\Auth\Access\AuthorizationException;
 
 trait ExceptionTrait
 {
@@ -17,6 +19,9 @@ trait ExceptionTrait
         } else if ($e instanceof NotFoundHttpException) {
 
             return $this->httpRes($e);
+        } else if ($e instanceof AuthorizationException) {
+
+            return $this->accessDeniedRes($e);
         } else {
 
             return parent::render($request, $e);
@@ -37,5 +42,12 @@ trait ExceptionTrait
         return response()->json([
             'errors' => 'URL or route Not Found !!! '
         ], Response::HTTP_NOT_FOUND);
+    }
+
+    public function accessDeniedRes($e)
+    {
+        return response()->json([
+            'errors' => 'You dont have permission for this !!! '
+        ], Response::HTTP_FORBIDDEN);
     }
 }
