@@ -14,7 +14,7 @@ class CreatePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true; // will add authorization with policy
+        return auth()->check(); // will add authorization with policy
     }
 
     /**
