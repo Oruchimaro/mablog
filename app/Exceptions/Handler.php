@@ -3,9 +3,12 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
+use App\Exceptions\ExceptionTrait;
 
 class Handler extends ExceptionHandler
 {
+    use ExceptionTrait;
     /**
      * A list of the exception types that are not reported.
      *
@@ -32,6 +35,17 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        //
+    }
+
+    /**
+     * Handle Custom Exceptions Here
+     */
+    public function render($request, Throwable $e)
+    {
+        if (request()->wantsJson()) {
+            return $this->apiException($request, $e);
+        }
+
+        return parent::render($request, $e);
     }
 }
