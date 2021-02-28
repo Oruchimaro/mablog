@@ -50,7 +50,7 @@ Route::post('/sanctum/token', function (Request $request) {
     return response()->json([
         'token' => $token,
         'user_id' => $user->id
-    ]);
+    ], 200);
 });
 
 
@@ -58,7 +58,25 @@ Route::post('/sanctum/token', function (Request $request) {
 Route::middleware('auth:sanctum')->delete('/sanctum/destroy/token', function (Request $request) {
     $request->user()->currentAccessToken()->delete();
     return response()->json([
-        'message' => 'Token Deleted!',
-        'status' => '201'
+        'message' => 'Token Deleted!'
+    ], 201);
+});
+
+
+Route::post('/user/register', function(Request $request){
+    $request->validate([
+        'name' => 'required|max:255',
+        'username' => 'required|max:255|min:4|unique:users,username',
+        'phone' => 'required|max:11|min:11|unique:users,phone',
+        'email' => 'required|email:rfc|unique:users,email',
+        'password' => 'required|confirmed|min:8'
     ]);
+
+    $data = $request->all();
+    $data['password'] = \Hash::make($request->password);
+    $user = User::create($data);
+
+    return response()->json([
+        'message' => "User Created, GG WP!"
+    ], 200);
 });

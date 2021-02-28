@@ -19,7 +19,7 @@ class PostController extends Controller
         $posts = Post::wherePublished(true)->with('owner')->latest()->get();
 
         if (request()->wantsJson()) {
-            return response()->json($posts);
+            return response()->json($posts, 200);
         }
 
         return Inertia::render('Posts/Posts', [
@@ -55,7 +55,7 @@ class PostController extends Controller
         ]);
 
         if (request()->wantsJson()) {
-            return response()->json(['status' => '200', 'post' => $post->load('owner')]);
+            return response()->json(['post' => $post->load('owner')], 200);
         }
 
         return redirect()->route('posts.show', compact('post'));
@@ -70,7 +70,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         if (request()->wantsJson()) {
-            return response()->json($post->load('owner'));
+            return response()->json($post->load('owner'), 200);
         }
 
         return Inertia::render('Posts/Show', [
@@ -89,7 +89,7 @@ class PostController extends Controller
         $this->authorize('update', $post);
 
         if (request()->wantsJson()) {
-            return response()->json($post);
+            return response()->json($post, 200);
         }
 
         return Inertia::render('Posts/Edit', [
@@ -116,7 +116,7 @@ class PostController extends Controller
         ]);
 
         if (request()->wantsJson()) {
-            return response()->json(['status' => 200, 'post' => $post]);
+            return response()->json(['post' => $post], 200);
         }
 
         return redirect()->route('posts.show', compact('post'));
@@ -135,7 +135,7 @@ class PostController extends Controller
         $post->delete();
 
         if (request()->wantsJson()) {
-            return response()->json(['status' => 201, 'message' => 'Deleted !!!']);
+            return response()->json(['message' => 'Deleted !!!'], 201);
         }
 
         return redirect()->route('posts.index');

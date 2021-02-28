@@ -81,7 +81,10 @@
 									"value": "1",
 									"type": "text"
 								}
-							]
+							],
+							"options": {
+								"formdata": {}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/posts",
@@ -451,7 +454,10 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}"
+							"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+							"options": {
+								"raw": {}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/posts/54",
@@ -488,7 +494,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}"
+									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/posts/1",
@@ -575,7 +584,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}"
+									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/posts/1",
@@ -654,7 +666,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}"
+									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+									"options": {
+										"raw": {}
+									}
 								},
 								"url": {
 									"raw": "http://127.0.0.1:8000/api/posts/232131",
@@ -753,7 +768,10 @@
 						],
 						"body": {
 							"mode": "formdata",
-							"formdata": []
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/posts/54",
@@ -951,7 +969,8 @@
 					]
 				}
 			],
-			"description": "## 2. Posts CRUD\nIn this section we will interact with posts crud of **MAblog**.\n\n\n"
+			"description": "## 2. Posts CRUD\nIn this section we will interact with posts crud of **MAblog**.\n\n\n",
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Auth",
@@ -1002,7 +1021,10 @@
 									"value": "hp4530-s",
 									"type": "text"
 								}
-							]
+							],
+							"options": {
+								"formdata": {}
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/sanctum/token",
@@ -1459,6 +1481,204 @@
 					]
 				},
 				{
+					"name": "Register User",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "amir",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "amir",
+									"description": "username must be unique and at least 4 charachters",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "09356451477",
+									"description": "phone must be 11 charachters",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "am@am.am",
+									"description": "email must be unique",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"description": "Password must be at least 8 charachters",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"description": "This is confirmation of password field",
+									"type": "text"
+								}
+							],
+							"options": {
+								"formdata": {}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						},
+						"description": "Type :Post \nURI : /api/sanctum/token\nResponse-type : JSON\nBody Params => (username/phone/email), password, device_name\nHeaders => Accept : application/json\nResponse : token, user_id\n"
+					},
+					"response": [
+						{
+							"name": "Register User Failed Validation Errors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "amir",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "amir",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "09356451477",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "am@am.am",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "1234567",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/user/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Feb 2021 07:05:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Feb 2021 07:05:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xae85c8e22d17cde5b5550ebc3a2052e0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"username\": [\n            \"The username has already been taken.\"\n        ],\n        \"phone\": [\n            \"The phone has already been taken.\"\n        ],\n        \"email\": [\n            \"The email has already been taken.\"\n        ],\n        \"password\": [\n            \"The password confirmation does not match.\",\n            \"The password must be at least 8 characters.\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
 					"name": "Destroy Token (unvalidate token)",
 					"request": {
 						"auth": {
@@ -1735,7 +1955,8 @@
 						}
 					]
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -1752,6 +1973,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
+				"id": "ded6a223-b44a-4873-99ca-792dce62b398",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1761,11 +1983,13 @@
 		{
 			"listen": "test",
 			"script": {
+				"id": "ae94d85f-93b4-4693-93c5-39ffd575a20c",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
