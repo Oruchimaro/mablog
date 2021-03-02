@@ -3677,13 +3677,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["post"],
@@ -28605,45 +28598,52 @@ var render = function() {
     },
     [
       _vm._v(" "),
-      _vm.$page.user.id === _vm.post.owner_id
-        ? _c(
-            "div",
-            [
-              _vm.$page.user
-                ? _c(
-                    "inertia-link",
-                    { class: _vm.linkClasses, attrs: { href: this.editUrl } },
-                    [_vm._v("Edit")]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  on: {
-                    submit: function($event) {
-                      $event.preventDefault()
-                      return _vm.deletePost($event)
-                    }
-                  }
-                },
-                [
-                  _vm.$page.user
-                    ? _c(
-                        "button",
-                        {
-                          staticClass: "bg-red-600",
-                          class: _vm.linkClasses,
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("\n        Delete\n      ")]
-                      )
-                    : _vm._e()
-                ]
-              )
-            ],
-            1
-          )
+      _vm.$page.user
+        ? _c("div", [
+            _vm.$page.user.id === _vm.post.owner_id
+              ? _c(
+                  "div",
+                  [
+                    _vm.$page.user
+                      ? _c(
+                          "inertia-link",
+                          {
+                            class: _vm.linkClasses,
+                            attrs: { href: this.editUrl }
+                          },
+                          [_vm._v("Edit")]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "form",
+                      {
+                        on: {
+                          submit: function($event) {
+                            $event.preventDefault()
+                            return _vm.deletePost($event)
+                          }
+                        }
+                      },
+                      [
+                        _vm.$page.user
+                          ? _c(
+                              "button",
+                              {
+                                staticClass: "bg-red-600",
+                                class: _vm.linkClasses,
+                                attrs: { type: "submit" }
+                              },
+                              [_vm._v("Delete")]
+                            )
+                          : _vm._e()
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : _vm._e()
+          ])
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "cont" }, [

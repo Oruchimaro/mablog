@@ -28,7 +28,7 @@ class UpdateUserPassword implements UpdatesUserPasswords
             }
         })->validateWithBag('updatePassword');
 
-        $user->fo rceFill([
+        $user->forceFill([
             'password' => Hash::make($input['password']),
         ])->save();
     }

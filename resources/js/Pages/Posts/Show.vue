@@ -5,20 +5,13 @@
         Create Post
       </h2>
     </template>
-    <div v-if="$page.user.id === post.owner_id">
-      <inertia-link :href="this.editUrl" :class="linkClasses" v-if="$page.user"
-        >Edit</inertia-link
-      >
-      <form @submit.prevent="deletePost">
-        <button
-          :class="linkClasses"
-          class="bg-red-600"
-          type="submit"
-          v-if="$page.user"
-        >
-          Delete
-        </button>
-      </form>
+    <div v-if="$page.user">
+      <div v-if="$page.user.id === post.owner_id">
+        <inertia-link :href="this.editUrl" :class="linkClasses" v-if="$page.user">Edit</inertia-link>
+        <form @submit.prevent="deletePost">
+          <button :class="linkClasses" class="bg-red-600" type="submit" v-if="$page.user">Delete</button>
+        </form>
+      </div>
     </div>
     <div class="cont">
       <h1 class="text-xl text-gray-700">{{ post.title }}</h1>

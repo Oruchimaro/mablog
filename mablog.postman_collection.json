@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8d3c3aaa-9cef-9a17-6859-ca877b103b0f",
+		"_postman_id": "c08a934e-99de-451c-9f0e-d8ac300d0951",
 		"name": "mablog",
 		"description": "# MAblog API Documentation\n\n## 1. Overview\n\nThis API is a JSON-based interface for using **MAblog**'s functionality. \nAll requests must begin with **/api** attached to source url i.e. in development env it is localhost/api/your-desired-route .\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -41,7 +41,343 @@
 						},
 						"description": "### 2.1. Get a List of all posts \nGet a List of all published posts (published : true or 1 ) with no pagination.\n\nURL : localhost/api/posts\n\nRequest Type :GET\n\n\n|Parameters | type | required? | description |\n| --- | --- | --- | ---| \n| --- | --- | --- | ---| \n\n\n|Headers | key | value | Description? |\n| --- | --- | --- | ---| \n| Request header | Accept | application/json | Tell the client that we expect a json response from server | \n\n#### Response \n\nIf successfull you will get a response code of **200** and the posts from database that are published.\n\n"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "All Posts with default per_page=6 attr",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:51:42 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:51:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X2803a54806633dfb5b0e3955fb14f52e"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"post\",\n            \"id\": \"52\",\n            \"attributes\": {\n                \"title\": \"Test Amir post updated\",\n                \"slug\": \"test-amir-post-updated\",\n                \"body\": \"This is my post body, this amirs power\\n\\nUpdated\",\n                \"published\": 1,\n                \"created_at\": \"5 hours ago\",\n                \"updated_at\": \"12 minutes ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"61\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"42\",\n            \"attributes\": {\n                \"title\": \"Aliquam odio nulla et ducimus.\",\n                \"slug\": \"aliquam-odio-nulla-et-ducimus\",\n                \"body\": \"Corporis voluptatem recusandae est qui assumenda non sint temporibus perferendis cum dolores consequatur et velit debitis debitis eos aut non sed est placeat optio ipsa iure similique quia.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"52\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"43\",\n            \"attributes\": {\n                \"title\": \"Vel veniam rerum tenetur rerum.\",\n                \"slug\": \"vel-veniam-rerum-tenetur-rerum\",\n                \"body\": \"Alias dolorum nemo non inventore minima earum vel et et saepe sint vel aut fuga quaerat dolorem eos nisi dignissimos ut quaerat eligendi cupiditate voluptas est ex harum.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"53\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"44\",\n            \"attributes\": {\n                \"title\": \"Aut officiis sequi quisquam.\",\n                \"slug\": \"aut-officiis-sequi-quisquam\",\n                \"body\": \"Explicabo praesentium eaque vitae saepe iure qui magni tempora quasi sed rerum libero et illo facere nisi sint odit.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"54\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"45\",\n            \"attributes\": {\n                \"title\": \"Repellat illum voluptates vitae optio.\",\n                \"slug\": \"repellat-illum-voluptates-vitae-optio\",\n                \"body\": \"Vero voluptas quidem quisquam fugiat soluta sapiente hic ex consequatur quis minima magni omnis qui qui fuga sunt magni deserunt laborum assumenda in molestias nemo.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"55\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"46\",\n            \"attributes\": {\n                \"title\": \"Architecto vel harum laborum recusandae.\",\n                \"slug\": \"architecto-vel-harum-laborum-recusandae\",\n                \"body\": \"Nam aliquam aspernatur alias quam voluptas explicabo officiis minus aut sit corporis nulla in amet aliquam ad est repellendus quia repellat reiciendis provident amet.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"56\"\n                    }\n                }\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/posts?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/posts?page=9\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8000/api/posts?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 9,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=1\",\n                \"label\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=3\",\n                \"label\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=4\",\n                \"label\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=5\",\n                \"label\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=6\",\n                \"label\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=7\",\n                \"label\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=8\",\n                \"label\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=9\",\n                \"label\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": \"Next\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/posts\",\n        \"per_page\": 6,\n        \"to\": 6,\n        \"total\": 51\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"61\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"amir amir\",\n                    \"username\": \"amir\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=amir+amir&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"52\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Gilda Haag\",\n                    \"username\": \"maximus.cronin\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Gilda+Haag&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"53\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Jacky Cormier\",\n                    \"username\": \"rmccullough\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Jacky+Cormier&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"54\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Marianne Littel\",\n                    \"username\": \"mante.manley\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Marianne+Littel&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"55\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Gwendolyn Cruickshank Sr.\",\n                    \"username\": \"fdicki\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Gwendolyn+Cruickshank+Sr.&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"56\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Arturo Haley MD\",\n                    \"username\": \"yharvey\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Arturo+Haley+MD&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Posts With Page identifier",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts?page=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "3",
+											"description": "Set a page number from meta attr less than last_pages"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:48:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:48:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xda85cdc44038dd5311b02979bca38864"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"post\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"title\": \"Dolores sapiente quia consequatur accusamus dolor.\",\n                \"slug\": \"dolores-sapiente-quia-consequatur-accusamus-dolor\",\n                \"body\": \"Et aut excepturi nulla rerum sequi commodi accusantium autem placeat incidunt earum amet expedita ea ex officiis quidem omnis qui voluptas eaque corrupti voluptates.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"13\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"title\": \"Repudiandae enim eius quod laborum.\",\n                \"slug\": \"repudiandae-enim-eius-quod-laborum\",\n                \"body\": \"Harum sit harum excepturi possimus dolores qui aperiam cumque consequuntur repellendus ipsa molestiae tempora.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"14\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"title\": \"Reiciendis et quam et.\",\n                \"slug\": \"reiciendis-et-quam-et\",\n                \"body\": \"Quis quas voluptatem quisquam ut architecto maxime sit et possimus quo et esse maxime voluptas recusandae adipisci voluptatibus.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"15\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"6\",\n            \"attributes\": {\n                \"title\": \"Non qui sunt repellat et.\",\n                \"slug\": \"non-qui-sunt-repellat-et\",\n                \"body\": \"Animi quis et alias impedit tempore incidunt assumenda sed quisquam soluta amet laborum minima adipisci.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"16\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"title\": \"Cupiditate omnis nemo in ea soluta rerum iste.\",\n                \"slug\": \"cupiditate-omnis-nemo-in-ea-soluta-rerum-iste\",\n                \"body\": \"Eos odio maiores amet ipsum doloribus et nobis minima debitis consequatur sequi voluptas aspernatur.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"17\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"8\",\n            \"attributes\": {\n                \"title\": \"Odio id dicta quidem sint tempore autem iure molestiae.\",\n                \"slug\": \"odio-id-dicta-quidem-sint-tempore-autem-iure-molestiae\",\n                \"body\": \"Explicabo totam voluptatem et aperiam recusandae atque dicta dolor voluptatibus iure quia ad fugiat nesciunt ducimus aut nostrum ad accusamus quidem accusantium voluptatum.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"18\"\n                    }\n                }\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/posts?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/posts?page=9\",\n        \"prev\": \"http://127.0.0.1:8000/api/posts?page=2\",\n        \"next\": \"http://127.0.0.1:8000/api/posts?page=4\"\n    },\n    \"meta\": {\n        \"current_page\": 3,\n        \"from\": 13,\n        \"last_page\": 9,\n        \"links\": [\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": \"Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=1\",\n                \"label\": 1,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=3\",\n                \"label\": 3,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=4\",\n                \"label\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=5\",\n                \"label\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=6\",\n                \"label\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=7\",\n                \"label\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=8\",\n                \"label\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=9\",\n                \"label\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=4\",\n                \"label\": \"Next\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/posts\",\n        \"per_page\": 6,\n        \"to\": 18,\n        \"total\": 51\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"13\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Ms. Era Stokes\",\n                    \"username\": \"wilber97\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Ms.+Era+Stokes&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"14\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Prof. Frederik Koch V\",\n                    \"username\": \"sipes.bernadine\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Prof.+Frederik+Koch+V&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"15\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Rhiannon Tillman\",\n                    \"username\": \"leilani.sporer\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Rhiannon+Tillman&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"16\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Paolo Lesch MD\",\n                    \"username\": \"roxane.davis\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Paolo+Lesch+MD&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"17\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Miss April Shanahan MD\",\n                    \"username\": \"aurelie.powlowski\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Miss+April+Shanahan+MD&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"18\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Dr. Antone Kuhn MD\",\n                    \"username\": \"aletha40\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Dr.+Antone+Kuhn+MD&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Posts With custom  posts count per page",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts?per_page=3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:50:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:50:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X8fdaf129b21ade7768ce7b1995d2706d"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"post\",\n            \"id\": \"52\",\n            \"attributes\": {\n                \"title\": \"Test Amir post updated\",\n                \"slug\": \"test-amir-post-updated\",\n                \"body\": \"This is my post body, this amirs power\\n\\nUpdated\",\n                \"published\": 1,\n                \"created_at\": \"5 hours ago\",\n                \"updated_at\": \"11 minutes ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"61\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"42\",\n            \"attributes\": {\n                \"title\": \"Aliquam odio nulla et ducimus.\",\n                \"slug\": \"aliquam-odio-nulla-et-ducimus\",\n                \"body\": \"Corporis voluptatem recusandae est qui assumenda non sint temporibus perferendis cum dolores consequatur et velit debitis debitis eos aut non sed est placeat optio ipsa iure similique quia.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"52\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"43\",\n            \"attributes\": {\n                \"title\": \"Vel veniam rerum tenetur rerum.\",\n                \"slug\": \"vel-veniam-rerum-tenetur-rerum\",\n                \"body\": \"Alias dolorum nemo non inventore minima earum vel et et saepe sint vel aut fuga quaerat dolorem eos nisi dignissimos ut quaerat eligendi cupiditate voluptas est ex harum.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"53\"\n                    }\n                }\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/posts?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/posts?page=17\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8000/api/posts?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 17,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=1\",\n                \"label\": 1,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=3\",\n                \"label\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=4\",\n                \"label\": 4,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=5\",\n                \"label\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=6\",\n                \"label\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=7\",\n                \"label\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=8\",\n                \"label\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=9\",\n                \"label\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=10\",\n                \"label\": 10,\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=16\",\n                \"label\": 16,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=17\",\n                \"label\": 17,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": \"Next\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/posts\",\n        \"per_page\": \"3\",\n        \"to\": 3,\n        \"total\": 51\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"61\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"amir amir\",\n                    \"username\": \"amir\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=amir+amir&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"52\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Gilda Haag\",\n                    \"username\": \"maximus.cronin\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Gilda+Haag&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"53\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Jacky Cormier\",\n                    \"username\": \"rmccullough\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Jacky+Cormier&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Posts with page identifier and per_page attr",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts?per_page=3&page=4",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "3"
+										},
+										{
+											"key": "page",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:50:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:50:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xb83b6b06dcc9ce9f089e7c307da11bfd"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"type\": \"post\",\n            \"id\": \"50\",\n            \"attributes\": {\n                \"title\": \"Debitis aut odit qui sunt quidem quia vitae.\",\n                \"slug\": \"debitis-aut-odit-qui-sunt-quidem-quia-vitae\",\n                \"body\": \"A perferendis mollitia natus possimus tempore quos aliquam eos necessitatibus fugiat et eos alias quae est alias fuga placeat voluptatem et illo repellat.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"60\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"title\": \"Quas assumenda quasi assumenda voluptas dolor magnam.\",\n                \"slug\": \"quas-assumenda-quasi-assumenda-voluptas-dolor-magnam\",\n                \"body\": \"Earum autem labore repellendus molestiae consectetur sapiente et sint tenetur rerum fugiat fugiat rem delectus vel quia sunt.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"11\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"post\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"title\": \"Autem alias cupiditate neque sint et similique.\",\n                \"slug\": \"autem-alias-cupiditate-neque-sint-et-similique\",\n                \"body\": \"Nisi nulla non nam voluptatem et asperiores esse voluptatem excepturi sit sed nam sit et.\",\n                \"published\": 1,\n                \"created_at\": \"2 days ago\",\n                \"updated_at\": \"2 days ago\"\n            },\n            \"relationships\": {\n                \"owner\": {\n                    \"data\": {\n                        \"type\": \"user\",\n                        \"id\": \"12\"\n                    }\n                }\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/posts?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/posts?page=17\",\n        \"prev\": \"http://127.0.0.1:8000/api/posts?page=3\",\n        \"next\": \"http://127.0.0.1:8000/api/posts?page=5\"\n    },\n    \"meta\": {\n        \"current_page\": 4,\n        \"from\": 10,\n        \"last_page\": 17,\n        \"links\": [\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=3\",\n                \"label\": \"Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=1\",\n                \"label\": 1,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=2\",\n                \"label\": 2,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=3\",\n                \"label\": 3,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=4\",\n                \"label\": 4,\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=5\",\n                \"label\": 5,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=6\",\n                \"label\": 6,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=7\",\n                \"label\": 7,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=8\",\n                \"label\": 8,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=9\",\n                \"label\": 9,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=10\",\n                \"label\": 10,\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=16\",\n                \"label\": 16,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=17\",\n                \"label\": 17,\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/posts?page=5\",\n                \"label\": \"Next\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/posts\",\n        \"per_page\": \"3\",\n        \"to\": 12,\n        \"total\": 51\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"60\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Owen Kerluke PhD\",\n                    \"username\": \"fanny.schmitt\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Owen+Kerluke+PhD&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"11\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Dr. Garry Bednar I\",\n                    \"username\": \"timothy.stehr\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Dr.+Garry+Bednar+I&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        },\n        {\n            \"type\": \"user\",\n            \"id\": \"12\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Prof. Kristopher Effertz\",\n                    \"username\": \"retha.dicki\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Prof.+Kristopher+Effertz&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
+						}
+					]
 				},
 				{
 					"name": "Create Post",
@@ -51,7 +387,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "5|miGS3IcQIMFLVez8JIl54IHQZv4aYADaQrio2W44",
+									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
 									"type": "string"
 								}
 							]
@@ -402,7 +738,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/19",
+							"raw": "http://127.0.0.1:8000/api/posts/44",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -414,93 +750,24 @@
 							"path": [
 								"api",
 								"posts",
-								"19"
+								"44"
 							]
 						},
 						"description": "href : /api/posts/{post id}\nresponse : should return the given post\n"
 					},
-					"response": []
-				},
-				{
-					"name": "Update Post",
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {
-							"content-type": true,
-							"accept": true,
-							"accept-encoding": true
-						}
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "5|miGS3IcQIMFLVez8JIl54IHQZv4aYADaQrio2W44",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
-							"options": {
-								"raw": {}
-							}
-						},
-						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/54",
-							"protocol": "http",
-							"host": [
-								"127",
-								"0",
-								"0",
-								"1"
-							],
-							"port": "8000",
-							"path": [
-								"api",
-								"posts",
-								"54"
-							]
-						},
-						"description": "href : /api/posts\nresponse : should contain all posts in system"
-					},
 					"response": [
 						{
-							"name": "Update Post _ failed authorization",
+							"name": "Show Post Success",
 							"originalRequest": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Accept",
 										"value": "application/json"
-									},
-									{
-										"key": "Content-Type",
-										"value": "application/json"
 									}
 								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
-									"options": {
-										"raw": {}
-									}
-								},
 								"url": {
-									"raw": "http://127.0.0.1:8000/api/posts/1",
+									"raw": "http://127.0.0.1:8000/api/posts/19",
 									"protocol": "http",
 									"host": [
 										"127",
@@ -512,12 +779,12 @@
 									"path": [
 										"api",
 										"posts",
-										"1"
+										"19"
 									]
 								}
 							},
-							"status": "Forbidden",
-							"code": 403,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -526,11 +793,11 @@
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 10 Feb 2021 12:11:47 GMT"
+									"value": "Tue, 02 Mar 2021 13:52:10 GMT"
 								},
 								{
 									"key": "Date",
-									"value": "Wed, 10 Feb 2021 12:11:47 GMT"
+									"value": "Tue, 02 Mar 2021 13:52:10 GMT"
 								},
 								{
 									"key": "Connection",
@@ -538,7 +805,7 @@
 								},
 								{
 									"key": "X-Powered-By",
-									"value": "PHP/8.0.2"
+									"value": "PHP/7.4.13"
 								},
 								{
 									"key": "Cache-Control",
@@ -558,7 +825,7 @@
 								},
 								{
 									"key": "phpdebugbar-id",
-									"value": "Xebc3dcff29d487e3fa74ce63e396c0da"
+									"value": "X0c9baa42a6e5f7cc53bdf6e338c9666c"
 								},
 								{
 									"key": "Access-Control-Allow-Origin",
@@ -566,8 +833,146 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"errors\": \"You dont have permission for this !!! \"\n}"
+							"body": "{\n    \"data\": {\n        \"type\": \"post\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"title\": \"Sed in aspernatur eaque.\",\n            \"slug\": \"sed-in-aspernatur-eaque\",\n            \"body\": \"Autem dolorum earum molestiae id pariatur architecto eligendi exercitationem quis labore laborum sapiente nulla aut aut eum.\",\n            \"published\": 1,\n            \"created_at\": \"2 days ago\",\n            \"updated_at\": \"2 days ago\"\n        },\n        \"relationships\": {\n            \"owner\": {\n                \"data\": {\n                    \"type\": \"user\",\n                    \"id\": \"29\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"29\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"Miss Lucy King Jr.\",\n                    \"username\": \"joelle.schmidt\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=Miss+Lucy+King+Jr.&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
 						},
+						{
+							"name": "Show Post Failed ",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/199999",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"199999"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:52:30 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:52:30 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X5917b071d750520a9adf90d374c1da3a"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": \"Record Not Found !!!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Post",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true,
+							"accept": true,
+							"accept-encoding": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"title\" : \"Test Update From API For post new\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/53",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"53"
+							]
+						},
+						"description": "href : /api/posts\nresponse : should contain all posts in system"
+					},
+					"response": [
 						{
 							"name": "Update Post _ failed authentication",
 							"originalRequest": {
@@ -739,6 +1144,186 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"errors\": \"Record Not Found !!!\"\n}"
+						},
+						{
+							"name": "Update Post SuccessFull wiith 202 response code",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\" : \"Test Update From API For post new\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/53",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"53"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:54:34 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:54:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xca6da59f483feef3fd094425921a5f98"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"type\": \"post\",\n        \"id\": \"53\",\n        \"attributes\": {\n            \"title\": \"Test Update From API For post new\",\n            \"slug\": \"test-update-from-api-for-post-new\",\n            \"body\": \"This is a test to update a post from api\",\n            \"published\": true,\n            \"created_at\": \"1 minute ago\",\n            \"updated_at\": \"1 second ago\"\n        },\n        \"relationships\": {\n            \"owner\": {\n                \"data\": {\n                    \"type\": \"user\",\n                    \"id\": \"61\"\n                }\n            }\n        }\n    },\n    \"included\": [\n        {\n            \"type\": \"user\",\n            \"id\": \"61\",\n            \"attributes\": {\n                \"data\": {\n                    \"name\": \"amir amir\",\n                    \"username\": \"amir\",\n                    \"profile_photo_url\": \"https://ui-avatars.com/api/?name=amir+amir&color=7F9CF5&background=EBF4FF\",\n                    \"joined_since\": \"2 days ago\"\n                }\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "Update Post _ failed authorization",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"title\" : \"Test Update From API\",\n\t\"body\" : \"This is a test to update a post from api\",\n\t\"published\" : true\n}",
+									"options": {
+										"raw": {}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"1"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Feb 2021 12:11:47 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 10 Feb 2021 12:11:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.0.2"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xebc3dcff29d487e3fa74ce63e396c0da"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"errors\": \"You dont have permission for this !!! \"\n}"
 						}
 					]
 				},
@@ -750,7 +1335,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "6|IpxFWjyyZVrA6mxeTgfy4FgKRVD8dedgKf3atwGf",
+									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
 									"type": "string"
 								}
 							]
@@ -774,7 +1359,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/54",
+							"raw": "http://127.0.0.1:8000/api/posts/52",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -786,7 +1371,7 @@
 							"path": [
 								"api",
 								"posts",
-								"54"
+								"52"
 							]
 						},
 						"description": "href : /api/posts\nresponse : should contain all posts in system"
@@ -878,6 +1463,96 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"errors\": \"Record Not Found !!!\"\n}"
+						},
+						{
+							"name": "Delete Post Success with 202 response code",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/posts/52",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"posts",
+										"52"
+									]
+								}
+							},
+							"status": "Accepted",
+							"code": 202,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:56:23 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Mar 2021 13:56:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X2efcafdae4a08a5b2fb2ea27376fdaab"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deleted !!!\"\n}"
 						},
 						{
 							"name": "Delete Post _ failed not allowed",
@@ -1046,107 +1721,6 @@
 					},
 					"response": [
 						{
-							"name": "Generate Token - Email",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "email",
-											"value": "am@am.am",
-											"description": "must be valid email",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "12345678",
-											"type": "text"
-										},
-										{
-											"key": "device_name",
-											"value": "hp4530-s",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "http://127.0.0.1:8000/api/sanctum/token",
-									"protocol": "http",
-									"host": [
-										"127",
-										"0",
-										"0",
-										"1"
-									],
-									"port": "8000",
-									"path": [
-										"api",
-										"sanctum",
-										"token"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 02 Feb 2021 15:49:57 GMT"
-								},
-								{
-									"key": "Date",
-									"value": "Tue, 02 Feb 2021 15:49:57 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/7.4.14"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "phpdebugbar-id",
-									"value": "X3eb544a6c7f5c712b8699b8fe16f6df0"
-								},
-								{
-									"key": "Access-Control-Allow-Origin",
-									"value": "*"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"token\": \"1|GJ25cjEuMLl20G2fkgfoLa4qnhXWsZkZ9EL4uj2s\",\n    \"user_id\": 61\n}"
-						},
-						{
 							"name": "Generate Token - Credential uncorrect error",
 							"originalRequest": {
 								"method": "POST",
@@ -1306,13 +1880,13 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						},
 						{
-							"name": "Generate Token - Username",
+							"name": "Generate Token - Email",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1326,9 +1900,9 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "username",
-											"value": "amir",
-											"description": "must be in db",
+											"key": "email",
+											"value": "am@am.am",
+											"description": "must be valid email",
 											"type": "text"
 										},
 										{
@@ -1360,10 +1934,57 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Feb 2021 15:49:57 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Feb 2021 15:49:57 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.14"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X3eb544a6c7f5c712b8699b8fe16f6df0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
 							"cookie": [],
-							"body": null
+							"body": "{\n    \"token\": \"1|GJ25cjEuMLl20G2fkgfoLa4qnhXWsZkZ9EL4uj2s\",\n    \"user_id\": 61\n}"
 						},
 						{
 							"name": "Generate Token - No Data Errors",
@@ -1477,6 +2098,60 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"message\": \"The given data was invalid.\",\n    \"errors\": {\n        \"phone\": [\n            \"The phone field is required when none of email / username are present.\"\n        ],\n        \"username\": [\n            \"The username field is required when none of email / phone are present.\"\n        ],\n        \"email\": [\n            \"The email field is required when none of phone / username are present.\"\n        ],\n        \"password\": [\n            \"The password field is required.\"\n        ],\n        \"device_name\": [\n            \"The device name field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "Generate Token - Username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "amir",
+											"description": "must be in db",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "device_name",
+											"value": "hp4530-s",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/sanctum/token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sanctum",
+										"token"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
 						}
 					]
 				},
@@ -1686,7 +2361,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|GJ25cjEuMLl20G2fkgfoLa4qnhXWsZkZ9EL4uj2s",
+									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
 									"type": "string"
 								}
 							]
@@ -1973,7 +2648,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ded6a223-b44a-4873-99ca-792dce62b398",
+				"id": "74b002fa-7018-429c-821a-1d8fdc1b1fac",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1983,7 +2658,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ae94d85f-93b4-4693-93c5-39ffd575a20c",
+				"id": "ecbf0c82-bc92-4ca0-b7ef-530108b8e033",
 				"type": "text/javascript",
 				"exec": [
 					""
