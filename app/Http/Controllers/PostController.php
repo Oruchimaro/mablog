@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatePostRequest;
+use File;
+use Storage;
+use Image;
 use App\Models\Post;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\PostCollection;
+use App\Http\Requests\CreatePostRequest;
+
 class PostController extends Controller
 {
     public function __construct()
@@ -50,14 +54,18 @@ class PostController extends Controller
      */
     public function store(CreatePostRequest $request)
     {
-        // authorization in request class
-        $post = Post::create([
+        $image = $this->storeImage($request); //image handler
+
+        $post = Post::create([ //authorization in request class
             'title' => $request->title,
             'slug' => Str::slug($request->title, '-'),
             'body' => $request->body,
             'owner_id' => auth()->id(),
-            'published' => (isset($request->published)) ? $request->published : 0
+            'published' => (isset($request->published)) ? $request->published : 0,
+            'thumb_img' => $image['thumb'],
+            'cover_img' => $image['cover']
         ]);
+        
 
         if (request()->wantsJson()) {
             return (new PostResource($post->load('owner')))
@@ -143,12 +151,64 @@ class PostController extends Controller
     {
         $this->authorize('delete', $post);
 
+        $this->deleteImage($post->thumb_img);
+        $this->deleteImage($post->cover_img);
+        
         $post->delete();
 
         if (request()->wantsJson()) {
             return response()->json(['message' => 'Deleted !!!'], 202);
-        }
-
+        }    
+    
         return redirect()->route('posts.index');
     }
+
+    protected function storeImage($request)
+    {
+        if ($request->hasFile('cover'))
+        {
+            $image = $request->file('cover');
+
+            $path = 'app/public/uploads/cover/' . auth()->id() . '/' ;
+            $path_without_app = 'public/uploads/cover/' . auth()->id() . '/' ;
+
+            // $ext = $image->getClientOriginalExtension();
+            $ext = 'webp';
+            $cname = "cover-". time() . '-' . auth()->id() . '.' . $ext;
+            $tname = "thumb-". time() . '-' . auth()->id() . '.' . $ext;
+
+            if ( ! \Storage::exists($path_without_app)) {
+                \Storage::makeDirectory($path_without_app, 493, true);
+            }
+
+            $cover = Image::make($image->getRealPath())
+                ->resize(800, 530)
+                ->encode('webp', 80);
+            $cover->save( storage_path( $path .$cname  ) );
+
+            $thumb = Image::make($image->getRealPath())
+                ->resize(348, 200)
+                ->text('MA BLOG' , 0, 10, function($font) {
+                    $font->size(24);
+                    $font->color(array(0, 0, 0, 0.4));
+                })
+                ->encode('webp', 80);
+            $thumb->save( storage_path( $path .$tname  ) );
+        }
+        
+        return [
+            'cover' => '/storage/uploads/cover/'. auth()->id() .'/'. $cname,
+            'thumb' => '/storage/uploads/cover/'. auth()->id() .'/'. $tname
+        ];
+    }
+
+    protected function deleteImage($path)
+    {
+        if(File::exists(public_path($path)) && $path != "/storage/default.jpeg"){
+            File::delete(public_path($path));
+        }
+
+        return true;
+    }
+
 }

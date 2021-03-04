@@ -10,8 +10,15 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'body', 'published', 'owner_id'];
-
+    protected $fillable = [
+        'title', 
+        'slug', 
+        'body', 
+        'published', 
+        'owner_id', 
+        'thumb_img', 
+        'cover_img'
+    ];
 
     /******************************* Methods *******************************/
     /** 
@@ -51,6 +58,20 @@ class Post extends Model
         return $this->state([
             'published' => true,
         ]);
+    }
+
+    public function getCoverImageAttribute()
+    {
+        return ($this->cover_img != null) ?
+            $this->cover_img :
+            '/storage/default.jpeg';
+    }
+
+    public function getThumbImageAttribute()
+    {
+        return ($this->thumb_img != null) ? 
+            $thumb = $this->thumb_img :
+            $thumb = '/storage/default.jpeg';
     }
 
     /******************************* RelationShips *******************************/

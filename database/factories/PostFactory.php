@@ -29,8 +29,10 @@ class PostFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title, '-'),
             'owner_id' => $user->id,
-            'body' => $this->faker->sentence(20),
-            'published' => true
+            'body' => $this->faker->realText($maxNbChars = 2000, $indexSize = 4),
+            'published' => true,
+            'thumb_img' => '',
+            'cover_img' => ''
         ];
     }
 }

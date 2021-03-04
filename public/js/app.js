@@ -3677,6 +3677,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["post"],
@@ -28647,6 +28648,8 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "cont" }, [
+        _c("img", { attrs: { src: _vm.post.cover_image, alt: "image" } }),
+        _vm._v(" "),
         _c("h1", { staticClass: "text-xl text-gray-700" }, [
           _vm._v(_vm._s(_vm.post.title))
         ]),

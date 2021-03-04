@@ -31,3 +31,10 @@
     - Commands for development enviorment
         1) php artisan serve  (run development server)
         2) npm run watch (for front-end development enviorment ) #with this browser auto compiles and refreshes on change of css/js localhost:3000
+
+#### Requirements
+
+    php >= 7.4
+        - imagick PHP extension (required by intervention) 
+        OR
+        - gd PHP extension

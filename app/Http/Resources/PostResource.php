@@ -26,6 +26,8 @@ class PostResource extends JsonResource
                 'published' => $this->published,
                 'created_at' => $this->created_at,
                 'updated_at' => $this->updated_at,
+                'thumb_image' => $this->thumb_image,
+                'cover_image' => $this->cover_image
             ],
             
             'relationships' => [

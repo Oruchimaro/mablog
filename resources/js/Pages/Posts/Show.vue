@@ -14,6 +14,7 @@
       </div>
     </div>
     <div class="cont">
+      <img :src="post.cover_image" alt="image">
       <h1 class="text-xl text-gray-700">{{ post.title }}</h1>
       <p class="my-4 text-md">{{ post.body }}</p>
       <h3 class="text-xs text-red-300">{{ post.created_at }}</h3>
