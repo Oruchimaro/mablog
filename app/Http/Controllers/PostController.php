@@ -17,7 +17,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware(['auth:sanctum'])
-            ->except(['index', 'show']);
+            ->except(['index', 'show', 'limiter']);
     }
 
     public function index()
@@ -58,7 +58,7 @@ class PostController extends Controller
 
         $post = Post::create([ //authorization in request class
             'title' => $request->title,
-            'slug' => Str::slug($request->title, '-'),
+            'slug' => time(). '-' .Str::slug($request->title, '-'),
             'body' => $request->body,
             'owner_id' => auth()->id(),
             'published' => (isset($request->published)) ? $request->published : 0,
@@ -211,4 +211,21 @@ class PostController extends Controller
         return true;
     }
 
+    /**
+     * Get Posts before a specefic post with a limit that defaults to 60
+     */
+    public function limiter()
+    {
+        $limit = request()->limit ?: 60 ;
+
+        $posts = Post::where( 'id', '<', request()->post )
+            ->orderBy('id', 'DESC')
+            ->limit($limit)
+            ->with('owner')
+            ->get();
+
+        return (new PostCollection($posts))
+            ->response()
+            ->setStatusCode(200);
+    }
 }

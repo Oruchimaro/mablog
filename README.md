@@ -23,6 +23,7 @@
         4) npm install
         5) npm run dev
         6) create a postman collection using mablog.postman_collection.json (for api calls)
+        7) php artisan storage:link
 
     - Run the app using
         *) php artisan serve

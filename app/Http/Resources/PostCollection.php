@@ -31,7 +31,9 @@ class PostCollection extends ResourceCollection
                 ->values()
                 ->map(function($owner){
                     return new UserResource($owner);
-                })
+                }),
+                
+            'post_count' => $this->count()
         ];
     }
 }

@@ -387,7 +387,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
+									"value": "1|IVxxVp91f2lESG1JorBUdANC22tw7SOYz4nMfA0m",
 									"type": "string"
 								}
 							]
@@ -404,18 +404,23 @@
 							"formdata": [
 								{
 									"key": "title",
-									"value": "new Post From API 2",
+									"value": "hat will be the best plan.' It sounded",
 									"type": "text"
 								},
 								{
 									"key": "body",
-									"value": "Body Of newpost from api 2",
+									"value": "hat will be the best plan.' It sounded an excellent plan, no doubt, and very neatly and simply arranged; the only difficulty was, that her flamingo was gone across to the ",
 									"type": "text"
 								},
 								{
 									"key": "published",
 									"value": "1",
 									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/home/tyrant/Pictures/photo_2021-02-22_14-19-05.jpg"
 								}
 							],
 							"options": {
@@ -738,7 +743,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/44",
+							"raw": "http://127.0.0.1:8000/api/posts/563",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -750,7 +755,7 @@
 							"path": [
 								"api",
 								"posts",
-								"44"
+								"563"
 							]
 						},
 						"description": "href : /api/posts/{post id}\nresponse : should return the given post\n"
@@ -1335,7 +1340,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|Jhrk05ddfvRSNgok29mdYcm35B1W7mkjfMrRtlvJ",
+									"value": "1|IVxxVp91f2lESG1JorBUdANC22tw7SOYz4nMfA0m",
 									"type": "string"
 								}
 							]
@@ -1359,7 +1364,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/posts/52",
+							"raw": "http://127.0.0.1:8000/api/posts/564",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1371,7 +1376,7 @@
 							"path": [
 								"api",
 								"posts",
-								"52"
+								"564"
 							]
 						},
 						"description": "href : /api/posts\nresponse : should contain all posts in system"
@@ -1642,6 +1647,43 @@
 							"body": "{\n    \"errors\": \"You dont have permission for this !!! \"\n}"
 						}
 					]
+				},
+				{
+					"name": "Get Posts With Limiter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/posts/limiter?post=150&limit=100",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"posts",
+								"limiter"
+							],
+							"query": [
+								{
+									"key": "post",
+									"value": "150",
+									"description": "post id witch you want "
+								},
+								{
+									"key": "limit",
+									"value": "100",
+									"description": "the limit of the posts that will eb returned"
+								}
+							]
+						},
+						"description": "This request gets data of posts before a certain post and a limiter"
+					},
+					"response": []
 				}
 			],
 			"description": "## 2. Posts CRUD\nIn this section we will interact with posts crud of **MAblog**.\n\n\n",
@@ -1884,6 +1926,121 @@
 							"header": [],
 							"cookie": [],
 							"body": ""
+						},
+						{
+							"name": "Generate Token success tmp",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "09356451477",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "device_name",
+											"value": "hp4530-s",
+											"type": "text"
+										}
+									],
+									"options": {
+										"formdata": {}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/sanctum/token",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"sanctum",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Mar 2021 08:29:35 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 03 Mar 2021 08:29:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.13"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X3cd6e5e0d5672f9dedd348de70937bdf"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"1|RAH75rFCxZM3IHQ2f0GHDxvQzzFDBbXOpTo3FuDW\",\n    \"user_id\": 1\n}"
 						},
 						{
 							"name": "Generate Token - Email",
@@ -2469,7 +2626,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "4|8oCJRqx2ya8wJhQdnZrS3wro8vxKPEOViAZwtHfy",
+									"value": "2|olMTIvQ4AcAx5xCn4XHiXhn9ukRnnUFCa9VbAyDy",
 									"type": "string"
 								}
 							]
