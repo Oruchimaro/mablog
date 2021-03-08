@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -22,8 +23,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
 Route::get('/posts/limiter', [PostController::class, 'limiter']);
 Route::apiResource('/posts', PostController::class);
+
+
+Route::get('/posts/{post}/favorites', [FavoriteController::class, 'isFavorited'])->name('posts.isfavorite');
+Route::post('/posts/{post}/favorites', [FavoriteController::class, 'store'])->name('posts.favorite');
+Route::delete('/posts/{post}/favorites', [FavoriteController::class, 'destroy'])->name('posts.unfavorite');
+
+
 
 // temp token generator for api
 Route::post('/sanctum/token', function (Request $request) {

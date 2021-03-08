@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Traits\Favoritable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Favoritable;
 
     protected $fillable = [
         'title', 
@@ -18,6 +19,11 @@ class Post extends Model
         'owner_id', 
         'thumb_img', 
         'cover_img'
+    ];
+
+
+    protected $appends = [
+        'favoritesCount'
     ];
 
     /******************************* Methods *******************************/
