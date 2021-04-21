@@ -24,10 +24,15 @@ class PostFactory extends Factory
     public function definition()
     {
         $user = User::factory()->create();
+        $user->profile()->create([
+            'bio' => $this->faker->realText($maxNbChars = 150, $indexSize = 2),
+            'resume' => ''
+        ]);
+
         $title =  $this->faker->sentence;
         return [
             'title' => $title,
-            'slug' => Str::slug($title, '-'),
+            'slug' => time() . '-' .Str::slug($title, '-'),
             'owner_id' => $user->id,
             'body' => $this->faker->realText($maxNbChars = 2000, $indexSize = 4),
             'published' => true,
